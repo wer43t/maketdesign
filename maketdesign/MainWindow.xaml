@@ -1,0 +1,131 @@
+﻿<Window x:Class="maketdesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:maketdesign"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#7E8384"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <ControlTemplate x:Key="ButtonBaseControlTemplate1" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                    <Setter Property="Foreground" Value="#FF838383"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="35.2"/>
+            <RowDefinition Height="286*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#525152" Grid.ColumnSpan="2">
+            <Label Content="File"/>
+            <Label Content="Notifications"/>
+            <Label Content="Status"/>
+            <Label Content="View"/>
+            <Label Content="Customer"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Background="#525152" Grid.ColumnSpan="2" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Customer Search" FontSize="24"/>
+                <Label Content="Edit Customer" FontSize="24" Margin="15 0"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="Gray" >
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" Height="35" Margin="0,0,-0.4,0" Width="225">
+                <Button Width="100"  Content="Save Data" Template="{DynamicResource ButtonBaseControlTemplate1}"/>
+                <Button Width="100" Margin="10 0" Content="Close" Template="{DynamicResource ButtonBaseControlTemplate1}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Background="#525152">
+            <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Margin="5 5">
+                <StackPanel Background="Gray" Margin="1 1" Height="264">
+                <Grid Height="264" Margin="0,0,0.2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="First Name" Grid.Row="0"/>
+                    <Label Content="Last Name" Grid.Row="1"/>
+                    <Label Content="Company Name" Grid.Row="2"/>
+                    <Label Content="Division" Grid.Row="3"/>
+                    <Label Content="Phone Numbers" Grid.Row="4" Foreground="Black"/>
+                    <Label Content="Phone" Grid.Row="5"/>
+                    <Label Content="Fax" Grid.Row="6"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"/>
+                        <TextBox Grid.Row="2" Grid.Column="1"/>
+                        <TextBox Grid.Row="3" Grid.Column="1"/>
+                    <TextBox Grid.Row="5" Grid.Column="1"/>
+                    <TextBox Grid.Row="6" Grid.Column="1"/>
+                    </Grid>
+
+            </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Background="#525152" Grid.Column="1">
+            <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Margin="5 5">
+                <StackPanel Background="Gray" Margin="1 1" Height="264">
+                    <StackPanel Orientation="Horizontal" Margin="10 10">
+                        <Label Content="Birthday:" Margin="0 0 20 0"/>
+                        <Calendar>
+
+                        </Calendar>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
